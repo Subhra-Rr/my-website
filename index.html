@@ -141,7 +141,7 @@ section.main-section{padding:110px 8%;position:relative;z-index:2;}
 .skill-tag{background:rgba(59,130,246,0.07);border:1px solid rgba(59,130,246,0.16);color:var(--muted);padding:5px 12px;border-radius:4px;font-size:.78rem;font-family:var(--mono);transition:background .2s,color .2s,border-color .2s;}
 .skill-tag:hover{background:rgba(59,130,246,0.18);color:var(--text);border-color:rgba(59,130,246,0.35);}
 
-.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px;}
+.projects-grid{display:grid;grid-template-columns:1fr;max-width:600px;gap:28px;}
 .project-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:34px;transition:transform .3s,border-color .3s,box-shadow .3s;position:relative;overflow:hidden;display:flex;flex-direction:column;}
 .project-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent),var(--accent2),transparent);opacity:0;transition:opacity .3s;}
 .project-card:hover{transform:translateY(-8px);border-color:rgba(59,130,246,0.3);box-shadow:0 25px 60px rgba(0,0,0,0.5),0 0 0 1px rgba(59,130,246,0.08);}
@@ -187,11 +187,11 @@ footer{padding:40px 8%;border-top:1px solid var(--border);display:flex;justify-c
   .hero-right{display:none;}
   .stats-strip{gap:30px;}
   nav ul{display:none;}
+  .projects-grid{max-width:100%;}
 }
 @media(max-width:600px){
   .about-details{grid-template-columns:1fr;}
   .stats-strip{gap:20px;}
-  .projects-grid{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -265,10 +265,9 @@ footer{padding:40px 8%;border-top:1px solid var(--border);display:flex;justify-c
 </div>
 
 <div class="stats-strip">
-  <div class="stat"><div class="stat-num">2</div><div class="stat-label">Projects Shipped</div></div>
+  <div class="stat"><div class="stat-num">1</div><div class="stat-label">Project Shipped</div></div>
   <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Technologies</div></div>
-  <div class="stat"><div class="stat-num">2024</div><div class="stat-label">CSE Graduate</div></div>
-  <div class="stat"><div class="stat-num">∞</div><div class="stat-label">Coffee Consumed</div></div>
+  <div class="stat"><div class="stat-num">2028</div><div class="stat-label">CSE Graduate</div></div>
 </div>
 
 <section class="main-section" id="about">
@@ -359,7 +358,6 @@ footer{padding:40px 8%;border-top:1px solid var(--border);display:flex;justify-c
   <h2 class="section-title fade-up">Featured <span>Projects</span></h2>
   <div class="projects-grid">
 
-    <!-- PROJECT 1 — Eco Live Dashboard -->
     <div class="project-card fade-up delay-1">
       <div class="project-num">01 / Project</div>
       <h3 class="project-title">Eco Live Dashboard</h3>
@@ -371,20 +369,6 @@ footer{padding:40px 8%;border-top:1px solid var(--border);display:flex;justify-c
         <span class="tech-tag">REST API</span>
       </div>
       <a href="https://eco-live-dashboard.vercel.app/" target="_blank" class="project-link">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-
-    <!-- PROJECT 2 — Professional Portfolio -->
-    <div class="project-card fade-up delay-2">
-      <div class="project-num">02 / Project</div>
-      <h3 class="project-title">Professional Portfolio System</h3>
-      <p class="project-desc">Enterprise-level portfolio website engineered with advanced UI/UX principles, full SEO optimization, animation systems, and custom cursor effects. Designed to reflect engineering precision and aesthetic excellence.</p>
-      <div class="project-tech">
-        <span class="tech-tag">HTML5</span>
-        <span class="tech-tag">CSS3</span>
-        <span class="tech-tag">JavaScript</span>
-        <span class="tech-tag">SEO</span>
-      </div>
-      <a href="https://my-website-sandy-six-12.vercel.app/" target="_blank" class="project-link">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     </div>
 
   </div>
