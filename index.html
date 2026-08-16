@@ -51,11 +51,7 @@ nav ul li a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;heigh
 nav ul li a:hover{color:var(--text);}
 nav ul li a:hover::after{width:100%;}
 
-.nav-toggle{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:40px;height:40px;background:transparent;border:1px solid var(--border);border-radius:6px;cursor:pointer;touch-action:manipulation;flex-shrink:0;}
-.nav-toggle span{display:block;width:18px;height:2px;background:var(--text);transition:transform .25s,opacity .25s;}
-.nav-toggle.active span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-.nav-toggle.active span:nth-child(2){opacity:0;}
-.nav-toggle.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
 
 .hero{min-height:100vh;min-height:calc(var(--vh, 1vh) * 100);min-height:100dvh;padding:0 8%;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom);display:flex;align-items:center;justify-content:space-between;gap:60px;flex-wrap:wrap;position:relative;overflow:hidden;}
 .orb{position:absolute;border-radius:50%;filter:blur(120px);pointer-events:none;animation:drift 12s ease-in-out infinite alternate;}
@@ -202,30 +198,10 @@ footer{padding:40px 8%;padding-bottom:calc(40px + env(safe-area-inset-bottom));b
   section.main-section{padding:90px 6%;}
 }
 
-/* Tablets / nav collapses into hamburger */
+/* Tablets / phones — nav shows logo only, links hidden (single-page scroll site) */
 @media(max-width:980px){
-  nav{padding:16px 6%;}
-  nav ul{
-    display:flex;
-    flex-direction:column;
-    position:fixed;
-    top:64px;
-    left:0;
-    right:0;
-    background:rgba(5,8,16,0.98);
-    -webkit-backdrop-filter:blur(20px);
-    backdrop-filter:blur(20px);
-    border-bottom:1px solid var(--border);
-    padding:10px 6% calc(24px + env(safe-area-inset-bottom));
-    gap:0;
-    max-height:0;
-    overflow:hidden;
-    transition:max-height .35s ease;
-  }
-  nav ul.open{max-height:420px;}
-  nav ul li{width:100%;border-top:1px solid var(--border);}
-  nav ul li a{display:block;padding:16px 4px;font-size:.82rem;}
-  .nav-toggle{display:flex;}
+  nav{padding:16px 6%;justify-content:flex-start;}
+  nav ul{display:none;}
 
   .about-grid,.contact-wrapper{grid-template-columns:1fr;}
   .hero{justify-content:center;text-align:center;padding-top:120px;gap:40px;}
@@ -321,9 +297,6 @@ footer{padding:40px 8%;padding-bottom:calc(40px + env(safe-area-inset-bottom));b
     <li><a href="#certifications">Certs</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
 </nav>
 
 <section class="hero">
@@ -758,20 +731,6 @@ if(!isCoarse){
     el.addEventListener('mouseleave',()=>{ring.style.width='36px';ring.style.height='36px';ring.style.borderColor='rgba(59,130,246,0.5)';});
   });
 }
-
-const navToggle=document.getElementById('navToggle'),navList=document.getElementById('navList');
-navToggle.addEventListener('click',()=>{
-  const open=navList.classList.toggle('open');
-  navToggle.classList.toggle('active',open);
-  navToggle.setAttribute('aria-expanded',open?'true':'false');
-});
-navList.querySelectorAll('a').forEach(a=>{
-  a.addEventListener('click',()=>{
-    navList.classList.remove('open');
-    navToggle.classList.remove('active');
-    navToggle.setAttribute('aria-expanded','false');
-  });
-});
 
 const roles=['Software Engineer','React Developer','AI Dashboard Builder','Full Stack Developer','Web Engineer'];
 let ri=0,ci=0,del=false;
